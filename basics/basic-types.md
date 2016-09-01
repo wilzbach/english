@@ -28,9 +28,9 @@ UTF-8 characters, `wchar` is used in UTF-16 strings and `dchar`
 in UTF-32 strings.
 
 A conversion between variables of different types is only
-allowed by the compiler if no precision is lost. A conversion
-between floating point types (e.g `double` to `float`)
-is allowed though.
+allowed by the compiler if no precision is lost. However
+a conversion between floating point types
+(e.g `double` to `float`) is allowed.
 
 A conversion to another type may be forced by using the
 `cast(TYPE) myVar` expression. It needs to be used with great care though
@@ -56,10 +56,10 @@ Every type also has a `.stringof` property which yields its name as a string.
 ### Indexes in D
 
 In D indexes have usually the alias type `size_t` as it is a type that
-is large enough to represent an offset into all addressible memory - that is
+is large enough to represent an offset into all addressible memory - it is
 `uint` for 32-bit and `ulong` for 64-bit architectures.
 
-`assert` is compiler built-in which verifies conditions in debug mode and aborts
+`assert` is a compiler built-in which verifies conditions in debug mode and aborts
 with an `AssertionError` if it fails.
 
 ### In-depth
