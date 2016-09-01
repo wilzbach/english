@@ -19,19 +19,19 @@ allowed to change.
     // or: immutable err = 5 and int is inferred.
     err = 5; // won't compile
 
-`immutable` objects can thus safely be shared among different threads
+Thus `immutable` objects can safely be shared among different threads
 because they never change by design. This implies that `immutable`
 objects can be cached perfectly.
 
 ### `const`
 
-`const` objects can't be modified, too. This
+Objects of the storage class `const` can't be modified, too. This
 restriction is just valid for the current scope. A `const`
-pointer can be created from either a *mutable* or
+pointer can be created from either a *mutable* or an
 `immutable` object. This means that the object
-is `const` for your current scope, but someone
-else might modify it in future. Just with an `immutable`
-you will be sure that an object's value will never
+is `const` for the current scope, but someone
+else might modify it in future. Only with an `immutable`
+it is guaranteed that an object's value will never
 change. It is common for APIs to accept `const` objects
 to ensure they don't modify the input.
 
@@ -41,7 +41,7 @@ to ensure they don't modify the input.
     const int* pb = &b;
     *pa = 7; // disallowed
 
-Both `immutable` and `const` are _transitive_ which ensures that once
+Both `immutable` and `const` are _transitive_ storage classes, which ensures that once
 `const` is applied to a type, it applies recursively to every sub-component of that type.
 
 ### In-depth
