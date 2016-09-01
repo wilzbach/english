@@ -20,7 +20,7 @@ catch (FileException e)
 }
 ```
 
-You can also have multiple `catch` blocks and a `finally` block that is executed
+It's possible to have multiple `catch` blocks and a `finally` block that is executed
 regardless of whether an error occurred. Exceptions are thrown with `throw`.
 
 ```d
@@ -42,7 +42,7 @@ finally
 }
 ```
 
-Remember that the scope guard is usually a better solution to the `try-finally`
+Remember that a scope guard is usually a better solution to the `try-finally`
 pattern.
 
 ### Custom exceptions
