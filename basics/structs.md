@@ -36,7 +36,7 @@ A `struct` might contain any number of member functions. Those
 are per default `public` and accessible from the outside. They might
 as well be `private` and thus only be callable by other
 member functions of the same `struct` or other code in the same
-module.x
+module.
 
     struct Person {
         void doStuff() {
@@ -58,12 +58,12 @@ the member function will never change the state of the object.
 ### Static member functions
 
 If a member function is declared as `static`, it will be callable
-without an instantiated object e.g. `Person.myStatic()` but
-isn't allowed to access any non-`static` members.  It can be used if
+without an instantiated object e.g. `Person.myStatic()` but it
+isn't allowed to access any non-`static` members.  It can be used if a
 method doesn't need to access any of the object member fields but logically
 belongs to the same class. Also it can be used to provide some functionality
-without creating an explicit instance, for example, some Singleton
-design pattern implementations use `static`.
+without creating an explicit instance, for example, the Singleton
+design pattern implementation use `static`.
 
 ### Inheritance
 
