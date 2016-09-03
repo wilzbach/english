@@ -11,7 +11,7 @@ length of the slice:
     T* ptr;
     size_t length; // unsigned 32 bit on 32bit, unsigned 64 bit on 64bit
 
-### Getting a slice via new allocation
+### Allocating a new slice
 
 If a new dynamic array is created, a slice to this freshly
 allocated memory is returned:
@@ -19,16 +19,16 @@ allocated memory is returned:
     auto arr = new int[5];
     assert(arr.length == 5); // memory referenced in arr.ptr
 
-Actual allocated memory in this case is completely managed by garbage
-collector, returned slice acts as a "view" on underlying elements.
+The actual allocated memory is completely managed by the garbage
+collector, the returned slice acts as a "view" on the underlying elements.
 
-### Getting a slice to existing memory
+### Obtaining a slice to existing memory
 
-Using a slicing operator one can also get a slice pointing to some already
-existing memory. Slicing operator can be applied to another slice, static
+Using the slicing operator one can also get a slice pointing to already
+existing memory. Slicing operator can be applied to any existing slice, static
 arrays, structs/classes implementing `opSlice` and few other entities.
 
-In an example expression `origin[start .. end]` slicing operator is used to get
+In the example expression `origin[start .. end]` the slicing operator is used to get
 a slice of all elements of `origin` from `start` to the element _before_ `end`:
 
     auto newArr = arr[1 .. 4]; // index 4 ist NOT included
@@ -40,12 +40,12 @@ a new copy. If no slice holds a reference to that memory anymore - or a *sliced*
 part of it - it will be freed by the garbage collector.
 
 Using slices it's possible to write very efficient code for e.g. parsers
-that just operate on one memory block and just slice the parts they really need
-to work on - no need allocating new memory blocks.
+that operate on one memory block and just slice the parts they
+work on - without needing to allocate new memory blocks.
 
 As seen in the previous section the `[$]` expression is a shorthand form for
 `arr.length`. Hence `arr[$]` indexes the element one past the slice's end and
-thus would generate a `RangeError` (if bounds-checking hasn't been disabled).
+thus would generate a `RangeError` (if bound-checking hasn't been disabled).
 
 ### In-depth
 
