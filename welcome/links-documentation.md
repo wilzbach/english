@@ -1,5 +1,15 @@
 # Links & Documentation
 
+### Offline mode
+
+You can also download the Dlang Tour and run it locally without
+an internet connection. Simply fetch and run `dlang-tour` with
+D's package manager [`dub`](welcome/run-d-program-locally#package-manager-dub):
+
+    dub fetch dlang-tour && dub run dlang-tour
+
+### Documentation
+
 After you complete the tour, you can check out some of the following links for help or more information:
 
 * [Learning D as a beginner](http://ddili.org/ders/d.en/index.html)
